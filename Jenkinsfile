@@ -6,9 +6,7 @@ pipeline {
         maven 'maven3'
     }
 
-    environment {
-        SCANNER_HOME=tool 'sonar-scanner'
-    }
+   
 
     stages {
         stage('SCM Checkout') {
@@ -31,7 +29,10 @@ pipeline {
             }
         } 
 
-    stage("Sonarqube Analysis "){
+     stage("Static Code Analysis"){
+         environment {
+                SCANNER_HOME=tool 'sonar-scanner'
+            }
             steps{
                 withSonarQubeEnv('sonar-server') {
                     sh ''' $SCANNER_HOME/bin/sonar-scanner -Dsonar.projectName=Petclinic \
