@@ -33,12 +33,7 @@ pipeline {
             }
         } 
 
-       stage('Deploy') {
-            steps {
-                echo 'Deploying....'
-                sh 'cp /var/lib/jenkins/workspace/first-pipeline/target/petclinic.war /opt/apache-tomcat-9.0.65/webapps/'  
-            }
-        } 
+      
 
           
     }
