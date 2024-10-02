@@ -76,21 +76,29 @@ Let me know how it goes or if you have any questions. Happy coding! 💻✨
 #Maven #Tomcat #PetClinic #SpringBoot #Java #WebDevelopment #LearningJourney
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-# Porject 2
+# Porject 2: Build and deploy on tomcat server
 
 # What do we cover
 
-1. Build and deploy on tomcat server
+Setup CI/CD with github, jenkins, Maven and tomcat
 
-   Setup CI/CD with github, jenkins, Maven and tomcat
-
-   - Setup jenkins
-   - Setup and configure maven and git
-   - Integrate github, maven, tomcat server with jenkins
-   - Create a CI and CD job
-   - Test deployment
+   1. Setup jenkins
+   2. Setup and configure maven and git
+   3. Integrate github, maven, tomcat server with jenkins
+   4. Create a CI and CD job
+   5. Test deployment
 
 ![Project drawio](https://github.com/user-attachments/assets/0be448ea-d3d5-4289-b134-7f662bbebc08)
 
 
+```shell
+Step 1: Install and setup Jenkins
+
+Step 2: Install Maven and JDK plugins
+
+Step 3: Create a pipeline job (Check Jenkinsfile i created one for you)
+
+Step 4: I also recommend you to check Jenkins docs to understands pipeline jobs well. 
+
+```
 
