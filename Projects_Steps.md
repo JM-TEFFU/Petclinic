@@ -92,6 +92,7 @@ Setup CI/CD with github, jenkins, Maven and tomcat
 
 
 ```shell
+
 Step 1: Install and setup Jenkins
 
 Step 2: Install Maven and JDK plugins
@@ -110,7 +111,16 @@ Step 4: I also recommend you to check Jenkins docs to understands pipeline jobs 
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-# Project 3: Add Static Code Analysis (Sonarqube)
+# Project 3:Build, Perform static code analysis, deploy on tomcat server
+
+   1. Setup jenkins
+   2. Setup and configure maven and git
+   3. Integrate github, maven,sonarqube, tomcat server with jenkins
+   4. Create a CI and CD job
+   5. Test deployment
+
+![Project3 drawio](https://github.com/user-attachments/assets/4aa4b033-62ca-42ef-9544-a24677d9cfc3)
+
 
 ## Pipeline stages
 
