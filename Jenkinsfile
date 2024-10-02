@@ -7,7 +7,6 @@ pipeline {
     }
 
    
-
     stages {
         stage('SCM Checkout') {
             steps {
@@ -29,7 +28,15 @@ pipeline {
             }
         } 
 
-     stage("Static Code Analysis"){
+     
+        stage('Build') {
+            steps {
+                echo 'Building....'
+                sh 'mvn package'  
+            }
+        }
+
+        stage("Static Code Analysis"){
          environment {
                 SCANNER_HOME=tool 'sonar-scanner'
             }
@@ -43,13 +50,6 @@ pipeline {
             }
         }
 
-        
-        stage('Build') {
-            steps {
-                echo 'Building....'
-                sh 'mvn package'  
-            }
-        }
 
          
 
