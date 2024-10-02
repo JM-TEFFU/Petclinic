@@ -1,5 +1,7 @@
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+# Project 1
+
 # Check linkedin profile: www.linkedin.com/in/jaqueen-mokhoma-teffu-465149329
 
 # Build and deploy on tomcat
@@ -73,3 +75,22 @@ Let me know how it goes or if you have any questions. Happy coding! 💻✨
 
 #Maven #Tomcat #PetClinic #SpringBoot #Java #WebDevelopment #LearningJourney
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+# Porject 2
+
+# What do we cover
+
+1. Build and deploy on tomcat server
+
+   Setup CI/CD with github, jenkins, Maven and tomcat
+
+   - Setup jenkins
+   - Setup and configure maven and git
+   - Integrate github, maven, tomcat server with jenkins
+   - Create a CI and CD job
+   - Test deployment
+
+![Project drawio](https://github.com/user-attachments/assets/0be448ea-d3d5-4289-b134-7f662bbebc08)
+
+
+
