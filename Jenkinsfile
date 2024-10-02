@@ -35,8 +35,8 @@ pipeline {
 
         stage('Deploy') {
             steps {
-                echo 'Testing....'
-                sh 'cp /var/lib/jenkins/workspace/first-pipeline/target/petclinic.war /opt/apache-tomcat-9.0.65/webapps'  
+                echo 'Deploying....'
+                sh 'sudo cp /var/lib/jenkins/workspace/first-pipeline/target/petclinic.war /opt/apache-tomcat-9.0.65/webapps'  
             }
 
         }
