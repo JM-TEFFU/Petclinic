@@ -6,5 +6,19 @@ pipeline {
                 git branch: 'main', url: 'https://github.com/JM-TEFFU/Petclinic.git'
             }
         }
+
+        stage('SCM Checkout') {
+            steps {
+                git branch: 'main', url: 'https://github.com/JM-TEFFU/Petclinic.git'
+            }
+        }
+        
+      stage('Build') {
+            steps {
+                sh 'mvn clean package'
+            }
+        }
+    }
+     
     }
 }
