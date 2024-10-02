@@ -28,6 +28,13 @@ pipeline {
             }
         } 
 
+    stage('Deploy') {
+            steps {
+                echo 'Deploying....'
+                sh 'sudo cp target/petclic.war /opt/apache-tomcat-9.0.65/webapps'  
+            }
+        } 
+
           
     }
 }
