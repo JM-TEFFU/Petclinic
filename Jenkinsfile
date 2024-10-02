@@ -6,6 +6,10 @@ pipeline {
         maven 'maven3'
     }
 
+    environment {
+        SCANNER_HOME=tool 'sonar-scanner'
+    }
+
     stages {
         stage('SCM Checkout') {
             steps {
@@ -27,16 +31,16 @@ pipeline {
             }
         } 
 
-    stage('Static Code Analysis') {
-      environment {
-        SONAR_URL = "http://127.0.0.1:9000"
-      }
-      steps {
-        withCredentials([string(credentialsId: 'sonarqube-token', variable: 'SONAR_AUTH_TOKEN')]) {
-          sh 'mvn sonar:sonar -Dsonar.login=$SONAR_AUTH_TOKEN -Dsonar.host.url=${SONAR_URL}'
+    stage("Sonarqube Analysis "){
+            steps{
+                withSonarQubeEnv('sonar-server') {
+                    sh ''' $SCANNER_HOME/bin/sonar-scanner -Dsonar.projectName=Petclinic \
+                    -Dsonar.java.binaries=. \
+                    -Dsonar.projectKey=Petclinic '''
+    
+                }
+            }
         }
-      }
-    }
 
         
         stage('Build') {
