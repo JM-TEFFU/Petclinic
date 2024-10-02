@@ -37,7 +37,20 @@ pipeline {
         }
 
       
-
+       stage("Sonarqube Analysis "){
+             environment {
+                SCANNER_HOME=tool 'sonar-scanner'
+            }
+           
+            steps{
+                withSonarQubeEnv('sonar-server') {
+                    sh ''' $SCANNER_HOME/bin/sonar-scanner -Dsonar.projectName=Petclinic \
+                    -Dsonar.java.binaries=. \
+                    -Dsonar.projectKey=Petclinic '''
+    
+                }
+            }
+        }
          
 
         stage('Deploy') {
