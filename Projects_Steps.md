@@ -102,3 +102,8 @@ Step 4: I also recommend you to check Jenkins docs to understands pipeline jobs 
 
 ```
 
+# Pipeline stages
+
+
+
+![Screenshot from 2024-10-02 23-33-33](https://github.com/user-attachments/assets/9778f785-f8e0-489b-bdfa-45783490de92)
