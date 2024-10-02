@@ -1,15 +1,23 @@
 pipeline {
-    agent { docker { image 'maven:3.9.9-eclipse-temurin-21-alpine' } }
-
+    agent any
+    
+    tools{
+        jdk 'jdk17'
+        maven 'maven3'
+        {
+            
+    
     stages {
-        stage('Check maven version') {
+        stage('SCM Checkout') {
             steps {
-                sh 'mvn --version'
+               git branch: 'main', url: 'https://github.com/JM-TEFFU/Petclinic.git'
             }
         }
-
-        
-        
-    
+        stage('Compile') {
+            steps {
+               sh 'mvn compile'
+            }
+        }
+       
     }
 }
