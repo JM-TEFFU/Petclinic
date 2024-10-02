@@ -1,19 +1,33 @@
 pipeline {
-      agent any 
+    agent any
+
     stages {
         stage('SCM Checkout') {
             steps {
-            git branch: 'main', url: 'https://github.com/JM-TEFFU/Petclinic.git' 
+                echo 'SCM Checkout'
+                git branch: 'main', url: 'https://github.com/JM-TEFFU/Petclinic.git'
             }
         }
-     stage('Compile') {
+        stage('Compile') {
             steps {
-            sh 'mvn clean '
+                echo 'Compile..'
+                sh 'mvn compile'   
             }
         }
-        
+        stage('Build') {
+            steps {
+                echo 'Building....'
+                sh 'mvn package'  
+            }
+        }
 
+         stage('Test') {
+            steps {
+                echo 'Testing....'
+                sh 'mvn test'  
+            }
+        } 
 
-        
+          
     }
 }
