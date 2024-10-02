@@ -7,9 +7,9 @@ pipeline {
             }
         }
 
-        stage('SCM Checkout') {
+        stage('Compile') {
             steps {
-                git branch: 'main', url: 'https://github.com/JM-TEFFU/Petclinic.git'
+                sh 'mvn compile'
             }
         }
         
