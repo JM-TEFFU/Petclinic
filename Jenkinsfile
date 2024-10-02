@@ -1,5 +1,8 @@
 pipeline {
     agent { docker { image 'maven:3.9.9-eclipse-temurin-21-alpine' } }
+
+    
+    
     stages {
         stage('SCM Checkout') {
             steps {
@@ -9,7 +12,7 @@ pipeline {
 
         stage('Compile') {
             steps {
-                sh 'mvn compile'
+                sh 'mvn -B -DskipTests clean package'
             }
         }
         
