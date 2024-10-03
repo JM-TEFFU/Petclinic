@@ -144,12 +144,18 @@ Step 4: I also recommend you to check Jenkins docs to understands pipeline jobs 
 
 ## Pipeline stages
 
-![Screenshot from 2024-10-03 07-38-29](https://github.com/user-attachments/assets/b6e336be-8b42-464e-9b05-a2ba10361861)
+![Screenshot from 2024-10-03 08-53-15](https://github.com/user-attachments/assets/8a3db66f-6eea-4d08-9046-b84b98fd47c1)
 
 
 ## Sonarqube Analysis
 
-![Screenshot from 2024-10-03 01-09-52](https://github.com/user-attachments/assets/69da8415-db62-4844-80d2-35019f1bd35e)
+Figure 1.
+![Screenshot from 2024-10-03 08-38-39](https://github.com/user-attachments/assets/1aac52c5-f3b9-444d-af4b-9d8ac07256c7)
+
+Figure 2.
+![Screenshot from 2024-10-03 08-45-33](https://github.com/user-attachments/assets/9d6f874e-2cc3-4820-bf3a-78e23526efcc)
+
+
 
 # OWASP Dependecy check Analysis
 
