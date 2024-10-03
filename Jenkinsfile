@@ -28,16 +28,7 @@ pipeline {
             }
         } 
 
-     
-        stage('Build') {
-            steps {
-                echo 'Building....'
-                sh 'mvn package'  
-            }
-        }
-
-      
-       stage("Sonarqube Analysis "){
+        stage("Sonarqube Analysis "){
              environment {
                 SCANNER_HOME=tool 'sonar-scanner'
             }
@@ -58,6 +49,17 @@ pipeline {
                 dependencyCheckPublisher pattern: '**/dependency-check-report.xml'
             }
         }
+
+     
+        stage('Build') {
+            steps {
+                echo 'Building....'
+                sh 'mvn package'  
+            }
+        }
+
+      
+       
         
         stage('Deploy') {
             steps {
