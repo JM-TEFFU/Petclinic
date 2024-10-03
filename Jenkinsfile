@@ -53,12 +53,23 @@ pipeline {
 
          stage("OWASP Dependency Check"){
             steps{
+                echo'OWASP Depedency check'
                 dependencyCheck additionalArguments: '--scan target/ --format HTML ', odcInstallation: 'dp-check'
                 dependencyCheckPublisher pattern: '**/dependency-check-report.xml'
             }
         }
 
-      
+        stage('Nexus') {
+            steps {
+                echo 'Building....'
+                configFileProvider([configFile(fileId: '1c322f97-3d77-4302-abe0-7dd0d866eab0', variable: 'MyGlobalSettings')]) {
+                  
+                  sh "mvn -s $mavensettings clean deploy -DskipTests=true"
+                  
+                }
+
+            }
+        }
        
         
         stage('Deploy') {
