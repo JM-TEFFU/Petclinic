@@ -14,14 +14,14 @@ pipeline {
                 git branch: 'main', url: 'https://github.com/JM-TEFFU/Petclinic.git'
             }
         }
-        stage('Compile') {
+        stage('Compile ') {
             steps {
                 echo 'Compile..'
                 sh 'mvn compile'   
             }
         }
 
-        stage('Test') {
+        stage('Test Cases') {
             steps {
                 echo 'Testing....'
                 sh 'mvn test'  
