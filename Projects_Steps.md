@@ -145,7 +145,7 @@ Step 4: I also recommend you to check Jenkins docs to understands pipeline jobs 
 
 ## Pipeline stages
 
-![Screenshot from 2024-10-03 08-53-15](https://github.com/user-attachments/assets/8a3db66f-6eea-4d08-9046-b84b98fd47c1)
+![Screenshot from 2024-10-03 11-02-28](https://github.com/user-attachments/assets/4a87340e-6527-431d-be02-87d1921298d1)
 
 
 ## Sonarqube Analysis
