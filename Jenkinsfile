@@ -52,26 +52,12 @@ pipeline {
             }
         }
 
-        stage('OWASP Dependency Check') {
-            steps {
-                dependencyCheck additionalArguments: '--scan target/', odcInstallation: 'dp-check'
+       stage("OWASP Dependency Check"){
+            steps{
+                dependencyCheck additionalArguments: '--scan target/ --format HTML ', odcInstallation: 'dp-check'
+                dependencyCheckPublisher pattern: '**/dependency-check-report.xml'
             }
         }
-        
-        stage('Publish OWASP Dependency Check Report') {
-            steps {
-                publishHTML(target: [
-                    allowMissing: false,
-                    alwaysLinkToLastBuild: true,
-                    keepAll: true,
-                    reportDir: 'target',
-                    reportFiles: 'dependency-check-report.html',
-                    reportName: 'OWASP Dependency Check Report'
-                ])
-            }
-        }
-         
-
         stage('Deploy') {
             steps {
                 echo 'Deploying....'
