@@ -64,7 +64,7 @@ pipeline {
                 echo 'Building....'
                 configFileProvider([configFile(fileId: '1c322f97-3d77-4302-abe0-7dd0d866eab0', variable: 'MyGlobalSettings')]) {
                   
-                  sh "mvn -s $mavensettings clean deploy -DskipTests=true"
+                  sh ""
                   
                 }
 
