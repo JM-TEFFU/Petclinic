@@ -123,15 +123,15 @@ Step 4: I also recommend you to check Jenkins docs to understands pipeline jobs 
 
 
 ## Pipeline stages
+![Screenshot from 2024-10-03 08-38-12](https://github.com/user-attachments/assets/29d24a24-c9d2-407c-9e13-748c8729ffec)
 
-![Screenshot from 2024-10-03 01-15-08](https://github.com/user-attachments/assets/013fe35f-384c-4539-94cc-8c772a8c2637)
 
 ## Sonarqube Analysis
+![Screenshot from 2024-10-03 08-38-39](https://github.com/user-attachments/assets/97a0c061-2e8b-4634-9319-eb692ebfa784)
 
-![Screenshot from 2024-10-03 01-09-52](https://github.com/user-attachments/assets/69da8415-db62-4844-80d2-35019f1bd35e)
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-# Project 4: Build, Perform static code analysis,OWASP Dependecy check deploy on tomcat server
+# Project 4: Maven, Sonarqube,OWASP Dependecy check, Tomcat server
 
  1. Setup jenkins
    2. Setup and configure maven and git
