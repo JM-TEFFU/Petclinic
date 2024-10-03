@@ -155,6 +155,11 @@ Step 4: I also recommend you to check Jenkins docs to understands pipeline jobs 
 
 ![Screenshot from 2024-10-03 07-38-48](https://github.com/user-attachments/assets/b82496c4-f0cd-412d-ab3c-9a3ab85c09fd)
 
+# OWASP Dependecy check report
+
+![Screenshot from 2024-10-03 07-43-36](https://github.com/user-attachments/assets/b232f13e-cbf9-49e9-b7e5-9cd340b51a3f)
+
+
 
 
 
