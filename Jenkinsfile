@@ -43,20 +43,18 @@ pipeline {
             }
         }
 
-         stage("OWASP Dependency Check"){
-            steps{
-                dependencyCheck additionalArguments: '--scan ./ --format HTML ', odcInstallation: 'dp-check'
-                dependencyCheckPublisher pattern: '**/dependency-check-report.xml'
-            }
-        }
-
-      
-
-     
+        
         stage('Build') {
             steps {
                 echo 'Building....'
                 sh 'mvn package'  
+            }
+        }
+
+         stage("OWASP Dependency Check"){
+            steps{
+                dependencyCheck additionalArguments: '--scan ./ --format HTML ', odcInstallation: 'dp-check'
+                dependencyCheckPublisher pattern: '**/dependency-check-report.xml'
             }
         }
 
