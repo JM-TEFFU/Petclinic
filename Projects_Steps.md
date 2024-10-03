@@ -139,7 +139,7 @@ Step 4: I also recommend you to check Jenkins docs to understands pipeline jobs 
    4. Create a CI and CD job
    5. Test deployment
 
-![Project3 drawio](https://github.com/user-attachments/assets/4aa4b033-62ca-42ef-9544-a24677d9cfc3)
+![Project4 drawio](https://github.com/user-attachments/assets/ee9825f1-f066-4d52-a2d9-160dd6967c66)
 
 
 ## Pipeline stages
