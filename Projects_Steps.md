@@ -111,7 +111,7 @@ Step 4: I also recommend you to check Jenkins docs to understands pipeline jobs 
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-# Project 3:Build, Perform static code analysis, deploy on tomcat server
+# Project 3: Build, Perform static code analysis, deploy on tomcat server
 
    1. Setup jenkins
    2. Setup and configure maven and git
@@ -129,5 +129,32 @@ Step 4: I also recommend you to check Jenkins docs to understands pipeline jobs 
 ## Sonarqube Analysis
 
 ![Screenshot from 2024-10-03 01-09-52](https://github.com/user-attachments/assets/69da8415-db62-4844-80d2-35019f1bd35e)
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+# Project 4: Build, Perform static code analysis,OWASP Dependecy check deploy on tomcat server
+
+ 1. Setup jenkins
+   2. Setup and configure maven and git
+   3. Integrate github, maven,sonarqube,OWASP dependecy check,tomcat server with jenkins
+   4. Create a CI and CD job
+   5. Test deployment
+
+![Project3 drawio](https://github.com/user-attachments/assets/4aa4b033-62ca-42ef-9544-a24677d9cfc3)
+
+
+## Pipeline stages
+
+![Screenshot from 2024-10-03 07-38-29](https://github.com/user-attachments/assets/b6e336be-8b42-464e-9b05-a2ba10361861)
+
+
+## Sonarqube Analysis
+
+![Screenshot from 2024-10-03 01-09-52](https://github.com/user-attachments/assets/69da8415-db62-4844-80d2-35019f1bd35e)
+
+# OWASP Dependecy check Analysis
+
+![Screenshot from 2024-10-03 07-38-48](https://github.com/user-attachments/assets/b82496c4-f0cd-412d-ab3c-9a3ab85c09fd)
+
+
 
 
