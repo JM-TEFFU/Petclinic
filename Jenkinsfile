@@ -67,7 +67,7 @@ pipeline {
                     nexusArtifactUploader(
                         nexusUrl: 'http://127.0.0.1:8081/repository/maven-releases/',
                         credentialsId: 'nexus-credentials',
-                        artifacts: 'target/petclinic.war'  // Assuming your artifact is in target/petclinic.jar
+                        artifacts: ['target/petclinic.war']  // Assuming your artifact is in target/petclinic.jar
                     )
                 }
             }
