@@ -7,7 +7,7 @@ pipeline {
     }
 
     environment {
-        NEXUS_URL = 'http://127.0.0.1:8081/repository/maven-releases/'
+        NEXUS_URL = '127.0.0.1:8081'
         NEXUS_CREDENTIALS_ID = 'nexus-credentials'
     }
 
