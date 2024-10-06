@@ -59,6 +59,14 @@ pipeline {
             }
         }
 
+        stage("OWASP Dependency Check") {
+            steps {
+                configFileProvider([configFile(fileId: '20945440-1c56-4e65-8161-c3bd13773bbd', variable: 'mavensettings')]) {
+                sh "mvn -s $mavensettings clean deploy -DskipTests=true"
+                }
+            }
+        }
+
         
 
         stage('Deploy') {
