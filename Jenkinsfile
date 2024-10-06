@@ -60,7 +60,7 @@ pipeline {
         }
 
 
-          
+          /*
         stage('Deploy to Nexus') {
             steps {
                  echo 'Deploy to nexus....'
@@ -72,7 +72,7 @@ pipeline {
                     )
                 }
             }
-        }
+        }*/
        
 
         
