@@ -6,6 +6,11 @@ pipeline {
         maven 'maven3'
     }
 
+    environment {
+        NEXUS_URL = 'http://127.0.0.1:8081/repository/maven-releases/'
+        NEXUS_CREDENTIALS_ID = 'nexus-credentials'
+    }
+
    
     stages {
         stage('SCM Checkout') {
@@ -59,7 +64,22 @@ pipeline {
             }
         }
 
-
+        stage('Upload to Nexus') {
+            steps {
+                nexusArtifactUploader(
+                    nexusVersion: 'nexus3',
+                    protocol: 'http',
+                    nexusUrl: "${env.NEXUS_URL}",
+                    groupId: 'maven-releases',
+                    version: '1.0.0',
+                    repository: 'maven-releases',
+                    credentialsId: "${env.NEXUS_CREDENTIALS_ID}",
+                    artifacts: [
+                        [artifactId: 'my-app', classifier: '', file: 'target/petclinic.jar', type: 'jar']
+                    ]
+                )
+            }
+        }
        
         
         
