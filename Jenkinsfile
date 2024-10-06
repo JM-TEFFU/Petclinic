@@ -64,12 +64,11 @@ pipeline {
             steps {
                  echo 'Deploy to nexus....'
                 // Assuming you've created a Nexus credential named 'nexus-credentials'
-                withCredentials(credentialsId: 'nexus-credentials') {
+                withCredentials(bindings: [usernamePassword(credentialsId: 'nexus-credentials')]) {
                     nexusArtifactUploader(
                         nexusUrl: 'http://127.0.0.1:8081/repository/maven-releases/',
-                        nexusCredentialsId: 'nexus-credentials',
-                        repository: 'maven-releases',
-                        files: 'target/petclinic.jar'
+                        credentialsId: 'nexus-credentials',
+                        artifacts: 'target/petclinic.jar'  // Assuming your artifact is in target/petclinic.jar
                     )
                 }
             }
