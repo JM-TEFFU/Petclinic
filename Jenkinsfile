@@ -59,6 +59,22 @@ pipeline {
             }
         }
 
+
+        stage('Deploy to Nexus') {
+            steps {
+                 echo 'Deploy to nexus....'
+                // Assuming you've created a Nexus credential named 'nexus-credentials'
+                withCredentials(credentialsId: 'nexus-credentials') {
+                    nexusArtifactUploader(
+                        nexusUrl: 'http://127.0.0.1:8081/repository/maven-releases/',
+                        nexusCredentialsId: 'nexus-credentials',
+                        repository: 'releases',
+                        files: 'target/*.jar'
+                    )
+                }
+            }
+        }
+
        
        
         
