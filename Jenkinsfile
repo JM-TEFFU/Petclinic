@@ -62,6 +62,8 @@ pipeline {
             }
         }
 
+        /*
+
         stage('Upload to Nexus') {
             steps {
                 nexusArtifactUploader(
@@ -78,7 +80,7 @@ pipeline {
                     ]
                 )
             }
-        }
+        }*/
 
         stage('Deploy') {
             steps {
