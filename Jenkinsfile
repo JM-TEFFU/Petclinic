@@ -68,7 +68,7 @@ pipeline {
                     nexusArtifactUploader(
                         nexusUrl: 'http://127.0.0.1:8081/repository/maven-releases/',
                         nexusCredentialsId: 'nexus-credentials',
-                        repository: 'releases',
+                        repository: 'maven-releases',
                         files: 'target/*.jar'
                     )
                 }
