@@ -62,17 +62,19 @@ pipeline {
 
         stage('Deploy to Nexus') {
             steps {
-                 echo 'Deploy to nexus....'
-                    withCredentials(bindings: [usernamePassword(credentialsId: 'nexus-credentials')]) {
+                echo 'Deploy to Nexus...'
+                withCredentials(bindings: [usernamePassword(credentialsId: 'nexus-credentials')]) {
                     nexusArtifactUploader(
-                        nexusUrl: 'http://127.0.0.1:8081/repository/maven-releases/',
+                        nexusUrl: 'http://127.0.0.1:8081/repository/maven-releases/', // Replace with your Nexus server URL
                         credentialsId: 'nexus-credentials',
-                        artifacts: ['target/petclinic.war']  // Assuming your artifact is in target/petclinic.jar
+                        artifacts: 'target/petclinic.war', // Replace with the actual artifact path
+                        groupId: 'maven-releases', // Replace with your artifact's group ID
+                        version: '1.0.0', // Replace with the version of your artifact
+                        repository: 'maven-releases' // Replace with the desired repository name
                     )
                 }
             }
         }
-       
 
         
         
