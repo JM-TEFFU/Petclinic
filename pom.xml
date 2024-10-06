@@ -552,7 +552,19 @@
             <url>https://repo.spring.io/milestone</url>
         </repository>
     </repositories>
-
+         
+         <distributionManagement>
+           <repository>
+             <id>maven-releases-1</id>
+             <!-- CHANGE HERE by your team Nexus server -->
+             <url>http://127.0.0.1:8081/repository/maven-releases-1/</url>
+           </repository>
+           <snapshotRepository>
+             <id>maven-snapshots</id>
+             <!-- CHANGE HERE by your team Nexus server -->
+             <url>http://127.0.0.1:8081/repository/maven-releases-1/</url>
+           </snapshotRepository>
+         </distributionManagement>     
 
 
 </project>
