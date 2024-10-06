@@ -6,10 +6,7 @@ pipeline {
         maven 'maven3'
     }
 
-    environment {
-        NEXUS_URL = 'http://127.0.0.1:8081' // Full Nexus URL
-        NEXUS_CREDENTIALS_ID = 'nexus-credentials'
-    }
+    
 
     stages {
         stage('SCM Checkout') {
@@ -63,24 +60,6 @@ pipeline {
         }
 
         
-        stage('Upload to Nexus') {
-                steps {
-                    nexusArtifactUploader(
-                        nexusVersion: 'nexus3',
-                        protocol: 'http',
-                        nexusUrl: "${env.NEXUS_URL}",
-                        groupId: 'com.mycompany.myapp',
-                        artifactId: 'petclinic',
-                        version: '1.0.0',
-                        repository: 'maven-releases',
-                        credentialsId: "${env.NEXUS_CREDENTIALS_ID}",
-                        artifacts: [
-                            [artifactId: 'petclinic', classifier: '', file: 'target/petclinic.war', type: 'war']
-                        ]
-                    )
-                }
-        }
-
 
         stage('Deploy') {
             steps {
