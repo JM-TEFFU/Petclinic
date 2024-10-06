@@ -75,7 +75,7 @@ pipeline {
                     repository: 'maven-releases',
                     credentialsId: "${env.NEXUS_CREDENTIALS_ID}",
                     artifacts: [
-                        [artifactId: 'my-app', classifier: '', file: 'target/petclinic.jar', type: 'jar']
+                        [artifactId: 'my-app', classifier: '', file: 'target/', type: 'jar']
                     ]
                 )
             }
