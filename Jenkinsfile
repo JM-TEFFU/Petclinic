@@ -62,7 +62,7 @@ pipeline {
             }
         }
 
-        /*
+        
         stage('Upload to Nexus') {
             steps {
                 nexusArtifactUploader(
@@ -75,11 +75,11 @@ pipeline {
                     repository: 'maven-releases',
                     credentialsId: "${env.NEXUS_CREDENTIALS_ID}",
                     artifacts: [
-                        [artifactId: 'petclinic', classifier: '', file: 'target/petclinic-1.0.0.jar', type: 'jar']
+                        [artifactId: 'petclinic', classifier: '', file: 'target/petclinic.jar', type: 'jar']
                     ]
                 )
             }
-        }*/
+        }
 
         stage('Deploy') {
             steps {
