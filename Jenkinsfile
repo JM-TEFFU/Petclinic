@@ -1,17 +1,16 @@
 pipeline {
     agent any
 
-    tools{
+    tools {
         jdk 'jdk17'
         maven 'maven3'
     }
 
     environment {
-        NEXUS_URL = '127.0.0.1:8081'
+        NEXUS_URL = 'http://127.0.0.1:8081' // Full Nexus URL
         NEXUS_CREDENTIALS_ID = 'nexus-credentials'
     }
 
-   
     stages {
         stage('SCM Checkout') {
             steps {
@@ -19,78 +18,74 @@ pipeline {
                 git branch: 'main', url: 'https://github.com/JM-TEFFU/Petclinic.git'
             }
         }
-        stage('Compile ') {
+        
+        stage('Compile') {
             steps {
-                echo 'Compile..'
-                sh 'mvn compile'   
+                echo 'Compiling...'
+                sh 'mvn compile'
             }
         }
 
         stage('Test Cases') {
             steps {
-                echo 'Testing....'
-                sh 'mvn test'  
+                echo 'Running Tests...'
+                sh 'mvn test'
             }
-        } 
+        }
 
-        stage("Sonarqube Analysis "){
-             environment {
-                SCANNER_HOME=tool 'sonar-scanner'
+        stage("SonarQube Analysis") {
+            environment {
+                SCANNER_HOME = tool 'sonar-scanner'
             }
-           
-            steps{
+            steps {
                 withSonarQubeEnv('sonar-server') {
-                    sh ''' $SCANNER_HOME/bin/sonar-scanner -Dsonar.projectName=Petclinic \
-                    -Dsonar.java.binaries=. \
-                    -Dsonar.projectKey=Petclinic '''
-    
+                    sh ''' $SCANNER_HOME/bin/sonar-scanner \
+                        -Dsonar.projectName=Petclinic \
+                        -Dsonar.java.binaries=. \
+                        -Dsonar.projectKey=Petclinic '''
                 }
             }
         }
 
-        
         stage('Build') {
             steps {
-                echo 'Building....'
-                sh 'mvn package'  
+                echo 'Building...'
+                sh 'mvn package'
             }
         }
 
-         stage("OWASP Dependency Check"){
-            steps{
-                echo'OWASP Depedency check'
-                dependencyCheck additionalArguments: '--scan target/ --format HTML ', odcInstallation: 'dp-check'
+        stage("OWASP Dependency Check") {
+            steps {
+                echo 'Running OWASP Dependency Check...'
+                dependencyCheck additionalArguments: '--scan target/ --format HTML', odcInstallation: 'dp-check'
                 dependencyCheckPublisher pattern: '**/dependency-check-report.xml'
             }
         }
 
-        stage('Upload to Nexus') {
-            steps {
-                nexusArtifactUploader(
-                    nexusVersion: 'nexus3',
-                    protocol: 'http',
-                    nexusUrl: "${env.NEXUS_URL}",
-                    groupId: 'maven-releases',
-                    version: '1.0.0',
-                    repository: 'maven-releases',
-                    credentialsId: "${env.NEXUS_CREDENTIALS_ID}",
-                    artifacts: [
-                        [artifactId: 'my-app', classifier: '', file: 'target/', type: 'jar']
-                    ]
-                )
+       stage('Upload to Nexus') {
+                steps {
+                    nexusArtifactUploader(
+                        nexusVersion: 'nexus3',
+                        protocol: 'http',
+                        nexusUrl: "${env.NEXUS_URL}",
+                        groupId: 'com.mycompany.myapp',
+                        artifactId: 'petclinic',
+                        version: '1.0.0',
+                        repository: 'maven-releases',
+                        credentialsId: "${env.NEXUS_CREDENTIALS_ID}",
+                        artifacts: [
+                            [artifactId: 'petclinic', classifier: '', file: 'target/petclinic.war', type: 'war']
+                        ]
+                    )
+                }
             }
-        }
-       
-        
-        
+
+
         stage('Deploy') {
             steps {
-                echo 'Deploying....'
-                sh 'cp target/petclinic.war /opt/apache-tomcat-9.0.65/webapps'  
+                echo 'Deploying...'
+                sh 'cp target/petclinic.war /opt/apache-tomcat-9.0.65/webapps'
             }
-
         }
-
-          
     }
 }
