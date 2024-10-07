@@ -64,6 +64,8 @@ pipeline {
                 script {
                     withDockerRegistry(credentialsId: 'docker-creds', toolName: 'docker-server') {
                     sh "docker build -t petclinic -f Dockerfile ."
+                    sh "docker tag petclinic jaqueenwork/petclinic:latest"    
+                        
                     }            
                 }
             }
