@@ -81,6 +81,17 @@ pipeline {
                 }
             }
         }
+
+        stage('Deploy To Docker Container') {
+            steps {
+                script {
+                    withDockerRegistry(credentialsId: 'docker-creds', toolName: 'docker-server') {
+                    sh "docker run -d --name petclinic -p 8070:8070 jaqueenwork/petclinic:latest"   
+                        
+                    }   
+                }
+            }
+        }
     
        
     }
