@@ -63,8 +63,8 @@ pipeline {
             steps {
                 script {
                     withDockerRegistry(credentialsId: 'docker-creds', toolName: 'docker-server') {
-                    sh "docker build -t petclinic -f Dockerfile ."
-                    sh "docker tag petclinic jaqueenwork/petclinic:latest"    
+                    sh "docker build -t petclinic-tomcat ."
+                    sh "docker tag petclinic-tomcat jaqueenwork/petclinic:latest"    
                         
                     }            
                 }
@@ -86,7 +86,7 @@ pipeline {
             steps {
                 script {
                     withDockerRegistry(credentialsId: 'docker-creds', toolName: 'docker-server') {
-                    sh "docker run -d --name petclinic -p 8070:8070 jaqueenwork/petclinic:latest"   
+                    sh "docker run -d --name petclinic-tomcat -p 8070:8070 jaqueenwork/petclinic:latest"   
                         
                     }   
                 }
