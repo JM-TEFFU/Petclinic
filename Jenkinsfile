@@ -86,7 +86,7 @@ pipeline {
             steps {
                 script {
                     withDockerRegistry(credentialsId: 'docker-creds', toolName: 'docker-server') {
-                    sh "docker run -d --name petclinic-tomcat -p 8070:8070 jaqueenwork/petclinic:latest"   
+                    sh "docker run -p 8082:8080 petclinic-tomcat"   
                         
                     }   
                 }
