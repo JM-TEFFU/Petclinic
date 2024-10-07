@@ -63,8 +63,8 @@ pipeline {
             steps {
                 script {
                     withDockerRegistry(credentialsId: 'docker-creds', toolName: 'docker-server') {
- 
-                    }
+                    sh "docker build -t Petclinic -f Dockerfile ."
+                    }            
                 }
             }
         }
