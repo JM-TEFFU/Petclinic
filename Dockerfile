@@ -1,11 +1,13 @@
-# Step 1: Use the official OpenJDK 8 base image
-FROM openjdk:8
+# Step 1: Use the official Tomcat base image
+FROM tomcat:9.0-jdk8
 
 # Step 2: Expose port 8082
 EXPOSE 8082
 
-# Step 3: Add the petclinic.war file to the container
-ADD target/petclinic.war /petclinic.war
+# Step 3: Remove the default webapps if needed (optional)
+RUN rm -rf /usr/local/tomcat/webapps/*
 
-# Step 4: Use ENTRYPOINT to run the application with the specified WAR file
-ENTRYPOINT ["java", "-jar", "/petclinic.war"]
+# Step 4: Add your WAR file to the webapps directory in Tomcat
+ADD target/petclinic.war /usr/local/tomcat/webapps/petclinic.war
+
+# Step 5: Tomcat starts automatically, so no need for ENTRYPOINT
