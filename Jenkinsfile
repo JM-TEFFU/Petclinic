@@ -71,6 +71,16 @@ pipeline {
             }
         }
 
+         stage('Push Docker Image') {
+            steps {
+                script {
+                    withDockerRegistry(credentialsId: 'docker-creds', toolName: 'docker-server') {
+                    sh "docker push jaqueenwork/petclinic:latest"   
+                        
+                    }   
+                }
+            }
+        }
     
        
     }
