@@ -59,22 +59,17 @@ pipeline {
             }
         }
 
-        stage("Deploy to nexus") {
+        stage('Build Docker Image') {
             steps {
-                  echo 'Deploy to nexus...'
-                configFileProvider([configFile(fileId: '20945440-1c56-4e65-8161-c3bd13773bbd', variable: 'mavensettings')]) {
-                sh "mvn -s $mavensettings clean deploy -DskipTests=true"
+                script {
+                    withDockerRegistry(credentialsId: 'docker-creds', toolName: 'docker-server') {
+ 
+                    }
                 }
             }
         }
 
-        
-
-        stage('Deploy') {
-            steps {
-                echo 'Deploying...'
-                sh 'cp target/petclinic.war /opt/apache-tomcat-9.0.65/webapps'
-            }
-        }
+    
+       
     }
 }
